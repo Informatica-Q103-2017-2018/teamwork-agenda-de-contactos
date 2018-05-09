@@ -8,10 +8,13 @@ typedef struct{
 	int edad[2];
 }contacto;
 
+
+
 int main(){
 	int opcion;
 	int n,i;
 	printf("Introducir contacto(1),buscar contacto(2),eliminar contacto(3), ordenar contactos(4) y salir del programa(5)\n");
+	scanf("%d",&opcion);
 		switch (opcion)
 		{
 			case 1:
@@ -32,7 +35,12 @@ int main(){
 				scanf("%d",&c.telefono);
 				}
 				break;
+			case 2:
+				printf("Introduce el contacto\n");
+				break;
+		
 				}
+		
 		
 			
 			
@@ -40,6 +48,5 @@ int main(){
 			return 0;	
 		}
 		
-
 
 
