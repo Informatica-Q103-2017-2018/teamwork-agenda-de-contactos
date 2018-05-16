@@ -57,7 +57,7 @@ int main(){
 
 				
 			case 5:
-				printf("Programa Cerrado");
+				printf("Agenda Cerrado");
 				break;
 			
 			default: printf("Opcion no valida\n");
