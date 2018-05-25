@@ -9,6 +9,14 @@ typedef struct
 	char apellido [100];
 	int telefono;
 }contacto;
+contacto PedirContacto();
+void MostrarContacto(contacto c);
+int LeerContacto(FILE* f,contacto* c);
+int GuardarContacto(FILE* f,contacto c);
+
+int Compara(contacto c1,contacto c2,int campo);
+void Intercambia(contacto* c1,contacto* c2);
+
 
 int main ()
 {
@@ -51,4 +59,54 @@ int main ()
 	}
 	while(option!=0);
 	GuardarAgenda("Agenda.txt",agenda,num_contactos);
+}
+contacto PedirContacto()
+{
+	contacto c;
+	fflush(stdin);
+	printf("Nombre: ");
+	gets(c.nombre);
+	printf("Apellido: ");
+	gets(c.apellido);
+	printf("Telefono: ");
+	scanf("%d",&c.telefono);
+	return c;
+	
+}
+void MostrarContacto(contacto c)
+{
+printf("%20s %20s %10d\n",c.nombre,c.apellido,c.telefono);	
+}
+int LeerContacto(FILE* f,contacto* c)
+{
+	if(f==NULL)
+	{
+		printf("Error al abrir el fichero");
+	return 0;
+	}
+	else
+	{
+		fscanf(f,"%s %s %d",c->nombre,c->apellido,&c->telefono);
+	}
+	return 1;
+}
+
+int GuardarContacto(FILE* f,contacto c)
+{
+	if(f==NULL)
+	{
+		printf("Error al abrir el fichero");
+	return 0;
+    }
+	else
+	{
+		fprintf(f,"%s %s %d\n",c.nombre,c.apellido,c.telefono);
+	}
+	return 1;
+}
+void Intercambia (contacto* c1,contacto* c2)
+{
+	contacto aux =*c1;
+	*c1=*c2;
+	*c2=aux;
 }
